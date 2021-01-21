@@ -61,18 +61,18 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-	k8s-app: node-exporter
+    k8s-app: node-exporter
   name: node-exporter
   namespace: ingress-nginx
 spec:
   ports:
   - name: http
-	port: 9100
-	nodePort: 31672
-	protocol: TCP
+    port: 9100
+    nodePort: 31672
+    protocol: TCP
   type: NodePort
   selector:
-	k8s-app: node-exporter
+    k8s-app: node-exporter
 #------------------------------------------------------------------------
 ```
 
@@ -87,56 +87,56 @@ spec:
   scheme: http
   kubernetes_sd_configs:
   - api_server: null
-	role: endpoints
-	namespaces:
-	  names:
-	  - ingress-nginx
+    role: endpoints
+    namespaces:
+      names:
+      - ingress-nginx
   relabel_configs:
   - source_labels: [__meta_kubernetes_service_label_k8s_app]
-	separator: ;
-	regex: node-exporter
-	replacement: $1
-	action: keep
+    separator: ;
+    regex: node-exporter
+    replacement: $1
+    action: keep
   - source_labels: [__meta_kubernetes_endpoint_port_name]
-	separator: ;
-	regex: http
-	replacement: $1
-	action: keep
+    separator: ;
+    regex: http
+    replacement: $1
+    action: keep
   - source_labels: [__meta_kubernetes_namespace]
-	separator: ;
-	regex: (.*)
-	target_label: namespace
-	replacement: $1
-	action: replace
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
   - source_labels: [__meta_kubernetes_pod_name]
-	separator: ;
-	regex: (.*)
-	target_label: pod
-	replacement: $1
-	action: replace
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
   - source_labels: [__meta_kubernetes_service_name]
-	separator: ;
-	regex: (.*)
-	target_label: service
-	replacement: $1
-	action: replace
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
   - source_labels: [__meta_kubernetes_service_name]
-	separator: ;
-	regex: (.*)
-	target_label: job
-	replacement: ${1}
-	action: replace
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
   - source_labels: [__meta_kubernetes_service_label_k8s_app]
-	separator: ;
-	regex: (.+)
-	target_label: job
-	replacement: ${1}
-	action: replace
+    separator: ;
+    regex: (.+)
+    target_label: job
+    replacement: ${1}
+    action: replace
   - separator: ;
-	regex: (.*)
-	target_label: endpoint
-	replacement: http
-	action: replace
+    regex: (.*)
+    target_label: endpoint
+    replacement: http
+    action: replace
 #------------------------------------------------------------------------
   
   ```
