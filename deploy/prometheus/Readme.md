@@ -15,18 +15,18 @@ sudo kubectl apply --kustomize github.com/rsucasas/ingress-nginx/deploy/promethe
 2. PROMETHEUS INSTALLATION (https://kubernetes.github.io/ingress-nginx/user-guide/monitoring/)
 
 ```
-	> sudo kubectl apply --kustomize github.com/kubernetes/ingress-nginx/deploy/prometheus/
+sudo kubectl apply --kustomize github.com/kubernetes/ingress-nginx/deploy/prometheus/
 ```
 
 to expose port ...
 ```
-	> nohup kubectl port-forward -n ingress-nginx service/prometheus-server 9090:9090 --address 0.0.0.0 &
+nohup kubectl port-forward -n ingress-nginx service/prometheus-server 9090:9090 --address 0.0.0.0 &
 ```
 
 3. NODE-EXPORTER
 
 ```
-	> sudo kubectl apply -f ./node-exporter.yaml
+sudo kubectl apply -f ./node-exporter.yaml
 ```
 
 ##### node-exporter.yaml:
@@ -47,17 +47,17 @@ spec:
     metadata:
       labels:
 	k8s-app: node-exporter
-	spec:
-	  containers:
-	  - image: prom/node-exporter
-	    name: node-exporter
-	    ports:
-	    - containerPort: 9100
-	      protocol: TCP
-	      name: http
-	  tolerations:
-	  - effect: NoSchedule
-	    operator: Exists
+      spec:
+	containers:
+	- image: prom/node-exporter
+	  name: node-exporter
+	  ports:
+	  - containerPort: 9100
+	    protocol: TCP
+	    name: http
+	tolerations:
+	- effect: NoSchedule
+	  operator: Exists
 ---
 apiVersion: v1
 kind: Service
