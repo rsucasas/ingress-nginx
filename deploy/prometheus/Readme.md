@@ -47,17 +47,17 @@ spec:
     metadata:
       labels:
 	k8s-app: node-exporter
-      spec:
-	containers:
-	- image: prom/node-exporter
-	  name: node-exporter
-	  ports:
-	  - containerPort: 9100
-	    protocol: TCP
-	    name: http
-	tolerations:
-	- effect: NoSchedule
-	  operator: Exists
+    spec:
+      containers:
+      - image: prom/node-exporter
+	name: node-exporter
+	ports:
+        - containerPort: 9100
+	  protocol: TCP
+	  name: http
+      tolerations:
+      - effect: NoSchedule
+	operator: Exists
 ---
 apiVersion: v1
 kind: Service
