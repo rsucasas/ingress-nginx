@@ -25,5 +25,5 @@ scrape_configs:
     regex: ([^:]+)(?::\d+)?;(\d+)
     replacement: $1:$2
   - source_labels: [__meta_kubernetes_service_name]
-    regex: prometheus-server
+    regex: prometheus-server-p
     action: drop
