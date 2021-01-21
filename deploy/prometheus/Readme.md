@@ -16,7 +16,10 @@ sudo kubectl apply --kustomize github.com/rsucasas/ingress-nginx/deploy/promethe
 
 ```
 	> sudo kubectl apply --kustomize github.com/kubernetes/ingress-nginx/deploy/prometheus/
+```
 
+to expose port ...
+```
 	> nohup kubectl port-forward -n ingress-nginx service/prometheus-server 9090:9090 --address 0.0.0.0 &
 ```
 
@@ -26,10 +29,9 @@ sudo kubectl apply --kustomize github.com/rsucasas/ingress-nginx/deploy/promethe
 	> sudo kubectl apply -f ./node-exporter.yaml
 ```
 
+##### node-exporter.yaml:
+
 ```yaml
-#------------------------------------------------------------------------
-#node-exporter.yaml:
-#------------------------------------------------------------------------
 apiVersion: apps/v1  #FAQ02
 kind: DaemonSet  ##FAQ01
 metadata:
@@ -48,14 +50,14 @@ spec:
 	spec:
 	  containers:
 	  - image: prom/node-exporter
-		name: node-exporter
-		ports:
-		- containerPort: 9100
-		  protocol: TCP
-		  name: http
+	    name: node-exporter
+	    ports:
+	    - containerPort: 9100
+	      protocol: TCP
+	      name: http
 	  tolerations:
 	  - effect: NoSchedule
-		operator: Exists
+	    operator: Exists
 ---
 apiVersion: v1
 kind: Service
@@ -73,13 +75,11 @@ spec:
   type: NodePort
   selector:
     k8s-app: node-exporter
-#------------------------------------------------------------------------
 ```
 
 4. NODE-EXPORTER CONFIGURATION (PROMETHEUS)
 
 ```yaml
-#------------------------------------------------------------------------
 - job_name: node-exporter
   scrape_interval: 30s
   scrape_timeout: 10s
@@ -136,7 +136,5 @@ spec:
     regex: (.*)
     target_label: endpoint
     replacement: http
-    action: replace
-#------------------------------------------------------------------------
-  
+    action: replace 
   ```
