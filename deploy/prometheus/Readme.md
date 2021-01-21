@@ -36,15 +36,15 @@ metadata:
   name: node-exporter
   namespace: ingress-nginx
   labels:
-	k8s-app: node-exporter
+    k8s-app: node-exporter
 spec:
   selector:  ##FAQ03
-	matchLabels:
-	  k8s-app: node-exporter
+    matchLabels:
+      k8s-app: node-exporter
   template:
-	metadata:
-	  labels:
-		k8s-app: node-exporter
+    metadata:
+      labels:
+	k8s-app: node-exporter
 	spec:
 	  containers:
 	  - image: prom/node-exporter
