@@ -23,6 +23,6 @@ spec:
       volumes:
         - name: prometheus-config-volume
           configMap:
-            name: prometheus-configuration
+            name: prometheus-configuration-p
         - name: prometheus-storage-volume
           emptyDir: {}
