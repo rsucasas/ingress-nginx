@@ -5,8 +5,8 @@ commonLabels:
   app.kubernetes.io/name: prometheus-p
   app.kubernetes.io/part-of: ingress-nginx
 resources:
-- prom-pv.yml
-- prom-pvc.yml
+#- prom-pv.yml
+#- prom-pvc.yml
 - role.yaml
 - service-account.yaml
 - role-binding.yaml
