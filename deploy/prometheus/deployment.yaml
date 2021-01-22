@@ -18,14 +18,14 @@ spec:
           volumeMounts:
             - name: prometheus-config-volume
               mountPath: /etc/prometheus/
-            - name: prometheus-storage-volume
+            - name: prom-pv-storage
               mountPath: /prometheus/
       volumes:
         - name: prometheus-config-volume
           configMap:
             name: prometheus-configuration-p
-        - name: prometheus-storage-volume
-          emptyDir: {}
+        #- name: prometheus-storage-volume
+        #  emptyDir: {}
         - name: prom-pv-storage
           persistentVolumeClaim:
             claimName: prom-pvc
