@@ -11,4 +11,4 @@ spec:
   accessModes:
   - ReadWriteOnce
   hostPath:
-  path: "/home/kube8/k8s/data/prometheus"
+    path: "/home/kube8/k8s/data/prometheus"
