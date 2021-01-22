@@ -11,4 +11,4 @@ spec:
   accessModes:
   - ReadWriteOnce
   hostPath:
-    path: "/var/tmp/k8s-persistent-data"
+    path: "/tmp/k8s-persistent-data"
