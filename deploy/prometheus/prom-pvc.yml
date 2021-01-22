@@ -14,14 +14,15 @@ spec:
 ---
 # NFS
 apiVersion: v1
-kind: PersistentVolume
+kind: PersistentVolumeClaim
 metadata:
-  name: nfs
+  name: prom-pvc
+  labels:
+    name: prometheus
 spec:
-  capacity:
-    storage: 6Gi
   accessModes:
     - ReadWriteMany
-  nfs:
-    server: 192.168.7.42
-    path: "/data1"
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 6Gi
