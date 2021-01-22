@@ -12,3 +12,17 @@ spec:
   - ReadWriteOnce
   hostPath:
     path: "/tmp/k8s-persistent-data"
+---
+# NFS
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs
+spec:
+  capacity:
+    storage: 6Gi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: 192.168.7.42
+    path: "/data1"
