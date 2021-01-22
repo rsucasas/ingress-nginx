@@ -11,4 +11,4 @@ spec:
   accessModes:
   - ReadWriteOnce
   hostPath:
-    path: "/home/kube8/k8s/persistent-data"
+    path: "/var/tmp/k8s-persistent-data"
