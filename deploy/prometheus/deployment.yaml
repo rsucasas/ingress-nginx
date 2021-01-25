@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: prometheus-server-p
+  mamespace: ingress-nginx
 spec:
   replicas: 1
   template:
@@ -18,7 +19,7 @@ spec:
           volumeMounts:
             - name: prometheus-config-volume
               mountPath: /etc/prometheus/
-            - name: prom-pv-storage
+            - name: prom-host-mapped-nfs
               mountPath: /prometheus/
       volumes:
         - name: prometheus-config-volume
@@ -26,6 +27,6 @@ spec:
             name: prometheus-configuration-p
         #- name: prometheus-storage-volume
         #  emptyDir: {}
-        - name: prom-pv-storage
+        - name: prom-host-mapped-nfs
           persistentVolumeClaim:
-            claimName: prom-pvc
+            claimName: host-mapped-pvc1
