@@ -1,4 +1,4 @@
-# k8s - Cloud orchestration tools
+# K8s - Cloud orchestration tools
 
 ## K8s
 
