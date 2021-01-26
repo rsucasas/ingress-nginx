@@ -137,6 +137,16 @@ sudo ufw allow 8443/tcp
 sudo ufw allow 443/tcp
 sudo ufw allow 3000/tcp
 sudo ufw allow 9090/tcp
+sudo ufw allow 179/tcp
+sudo ufw allow 4789/tcp
+sudo ufw allow 5473/tcp
+sudo ufw allow 6443/tcp
+sudo ufw allow 2379/tcp
+sudo ufw allow 4149/tcp
+sudo ufw allow 10250/tcp
+sudo ufw allow 10255/tcp
+sudo ufw allow 10256/tcp
+sudo ufw allow 9099/tcp
 
 
 sudo ufw status
