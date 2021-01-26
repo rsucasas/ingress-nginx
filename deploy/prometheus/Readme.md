@@ -3,7 +3,7 @@
 ## installation with persistence
 
 ```
-sudo kubectl apply --kustomize github.com/rsucasas/ingress-nginx/deploy/prometheus/
+sudo kubectl apply --kustomize github.com/rsucasas/k8s/deploy/prometheus/
 ```
 
 ## without persistence
