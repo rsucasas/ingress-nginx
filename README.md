@@ -51,6 +51,8 @@ https://192.168.1.131:8443/#/login
 
 - Prometheus on MicroK8s
 
+-----------------------
+
 ## NFS server & clients
 
 - [Install server and clients on Ubuntu 16, 18](https://github.com/rsucasas/k8s/tree/master/nfs)
