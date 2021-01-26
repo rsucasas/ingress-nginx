@@ -28,4 +28,4 @@ spec:
         #  emptyDir: {}
         - name: prom-host-mapped-nfs
           persistentVolumeClaim:
-            claimName: prom-pvc1
+            claimName: prom-pvc
