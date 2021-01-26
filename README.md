@@ -1,8 +1,45 @@
 # K8s - Cloud orchestration tools
 
+-----------------------
+
+[K8s](#k8s)
+
+[MicroK8s](#microk8s)
+
+[Prometheus](#prometheus)
+
+[NFS server & clients](#nfs-server-&-clients)
+
+[LICENSE](#license)
+
+-----------------------
+
 ## K8s
 
+
+
+
 ### MicroK8s
+
+#### Dashboard
+
+To expose Dashboard:
+
+```
+nohup microk8s kubectl port-forward -n kube-system service/kubernetes-dashboard --address 0.0.0.0 8443:443 > dashboard_log.txt &
+```
+
+Token used to login
+
+```
+microk8s kubectl -n kube-system describe secret default-token
+```
+
+Dashboard:
+
+```
+https://192.168.1.131:8443/#/login  
+```
 
 --------------------
 
