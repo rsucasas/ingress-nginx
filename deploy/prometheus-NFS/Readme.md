@@ -20,6 +20,8 @@ sudo kubectl apply --kustomize github.com/kubernetes/ingress-nginx/deploy/promet
 
 to expose port ...
 ```
+microk8s kubectl expose -n ingress-nginx deployment.apps/prometheus-server-p  --type=LoadBalancer --name=prometheus-service
+
 nohup kubectl port-forward -n ingress-nginx service/prometheus-server 9090:9090 --address 0.0.0.0 &
 ```
 
