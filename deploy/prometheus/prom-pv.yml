@@ -4,16 +4,16 @@ metadata:
   name: pv-prometheus
 spec:
   capacity:
-    storage: 6Gi
+    storage: 3Gi
   volumeMode: Filesystem
   accessModes:
-  - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Delete
+  - ReadWriteMany
+  persistentVolumeReclaimPolicy: Recycle
   storageClassName: local-storage
   local:
     path: /tmp/k8s-persistent-data
-  #nodeSelector:
-  #  kubernetes.io/hostname: kube8
+  nodeSelector:
+    kubernetes.io/hostname: kube8
   nodeAffinity:
     required:
       nodeSelectorTerms:
@@ -24,16 +24,18 @@ spec:
           - kube8
     
 ---
-# NFS
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: nfs
+  name: pv-prometheus
+  labels:
+    type: local
 spec:
+  storageClassName: manual 
   capacity:
-    storage: 6Gi
+    storage: 3Gi
   accessModes:
-    - ReadWriteMany
-  nfs:
-    server: 192.168.7.42
-    path: "/data1"
+    - ReadWriteMany 
+  persistentVolumeReclaimPolicy: Recycle
+  hostPath:
+    path: "/tmp/k8s-persistent-data"
