@@ -16,7 +16,7 @@
 
 ## K8s
 
-
+- [Install K8s on Ubuntu 16, 18](https://github.com/rsucasas/k8s/blob/master/install/K8s)
 
 
 ### MicroK8s
