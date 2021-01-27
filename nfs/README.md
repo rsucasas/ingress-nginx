@@ -2,6 +2,10 @@
 # NFS & K8s 
 _(from https://vitux.com/install-nfs-server-and-client-on-ubuntu/)_
 
+#### [SERVER](Setting up the host server)
+
+#### [CLIENT](Configuring the Client Machine)
+
 ## Commands:
 
 ```
