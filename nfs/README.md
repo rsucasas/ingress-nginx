@@ -4,9 +4,9 @@ _(from https://vitux.com/install-nfs-server-and-client-on-ubuntu/)_
 
 -----------------------
 
-#### [SERVER](#setting-up-the-host-server)
+#### [SERVER INSTALLATION](#setting-up-the-host-server)
 
-#### [CLIENT](#configuring-the-client-machine)
+#### [CLIENT CONFIGURATION](#configuring-the-client-machine)
 
 -----------------------
 
