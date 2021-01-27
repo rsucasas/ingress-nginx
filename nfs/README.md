@@ -2,6 +2,24 @@
 # NFS & K8s 
 _(from https://vitux.com/install-nfs-server-and-client-on-ubuntu/)_
 
+## Commands:
+
+```
+sudo systemctl status nfs-server #
+
+sudo systemctl start nfs-server # 
+sudo systemctl stop nfs-server #
+
+showmount -e 192.168.1.131 # 
+
+
+rpcinfo -p 192.168.1.131 #
+
+
+rpc.nfsd  # open nfs ports
+```
+
+
 ## [Install NFS Server and Client on Ubuntu](https://vitux.com/install-nfs-server-and-client-on-ubuntu/)
 
 NFS or Network File System is a distributed file system protocol originally developed only by Sun Microsystems. Through NFS, you can allow a system to share directories and files with others over a network. By sharing NFS files, users and even programs can access information on remote systems almost as if they were on a local machine.
