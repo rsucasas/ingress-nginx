@@ -2,7 +2,7 @@
 
 -----------------------
 
-[INSTALLATION](#Installation)
+[INSTALLATION](##steps-to-install-kubernetes-on-ubuntu)
 
 -----------------------
 
