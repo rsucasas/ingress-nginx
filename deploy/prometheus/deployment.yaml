@@ -18,14 +18,14 @@ spec:
           volumeMounts:
             - name: prometheus-config-volume
               mountPath: /etc/prometheus/
-            - name: prom-host-mapped-nfs
-              mountPath: prometheus_data/
+            - name: prometheus-storage-volume
+              mountPath: /prometheus/
       volumes:
         - name: prometheus-config-volume
           configMap:
             name: prometheus-configuration-p
         #- name: prometheus-storage-volume
         #  emptyDir: {}
-        - name: prom-host-mapped-nfs
+        - name: prometheus-storage-volume
           persistentVolumeClaim:
-            claimName: prom-pvc1
+            claimName: prom-pvc-2
