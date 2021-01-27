@@ -1,3 +1,4 @@
+# ERROR
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -24,6 +25,7 @@ spec:
           - kube8
     
 ---
+# OK
 apiVersion: v1
 kind: PersistentVolume
 metadata:
