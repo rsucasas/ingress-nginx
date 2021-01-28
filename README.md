@@ -12,7 +12,7 @@ Installation guides of orchestrators like K8s, MicroK8s, K3s, and also tools lik
 
 [NFS server & clients](#nfs-server--clients)
 
-[LICENSE](#license)
+[LICENSE](https://github.com/rsucasas/k8s/blob/master/LICENSE)
 
 -----------------------
 
