@@ -77,12 +77,12 @@ spec:
   template:
     metadata:
       labels:
-	k8s-app: node-exporter
+        k8s-app: node-exporter
     spec:
       containers:
       - image: prom/node-exporter
-	name: node-exporter
-	ports:
+        name: node-exporter
+        ports:
         - containerPort: 9100
 	  protocol: TCP
 	  name: http
