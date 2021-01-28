@@ -2,6 +2,35 @@
 
 ## installation with persistence
 
+1. Install NFS server and clients
+
+2. Create storage class: "nfs-storage-class"
+
+```
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: nfs-storage-class
+  labels:
+    app: nfs-client-provisioner
+    app.kubernetes.io/managed-by: Helm
+    chart: nfs-client-provisioner-1.2.11
+    heritage: Helm
+    release: nfs-client-provisioner
+  managedFields:
+    - manager: Go-http-client
+      operation: Update
+      apiVersion: storage.k8s.io/v1
+provisioner: cluster.local/nfs-client-provisioner
+parameters:
+  archiveOnDelete: 'true'
+reclaimPolicy: Delete
+allowVolumeExpansion: true
+volumeBindingMode: Immediate
+```
+
+3. Execute command (after editing variables in yaml files):
+
 ```
 sudo kubectl apply --kustomize github.com/rsucasas/k8s/deploy/prometheus-NFS/
 ```
