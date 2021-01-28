@@ -52,15 +52,15 @@
 ##### node-exporter.yaml:
 
   ```yaml
-  apiVersion: apps/v1  #FAQ02
-  kind: DaemonSet  ##FAQ01
+  apiVersion: apps/v1
+  kind: DaemonSet
   metadata:
     name: node-exporter
     namespace: ingress-nginx
     labels:
       k8s-app: node-exporter
   spec:
-    selector:  ##FAQ03
+    selector:
       matchLabels:
         k8s-app: node-exporter
     template:
