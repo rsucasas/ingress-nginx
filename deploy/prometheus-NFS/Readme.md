@@ -4,7 +4,9 @@
 
 1. [Install NFS server and clients](https://github.com/rsucasas/k8s/tree/master/nfs)
 
-2. Create storage class: "nfs-storage-class"
+2. NAMESPACE WHERE TO INSTALL ALL: ingress-nginx (or edit files)
+
+3. Create storage class: "nfs-storage-class"
 
   ```yaml
   kind: StorageClass
@@ -29,33 +31,19 @@
   volumeBindingMode: Immediate
   ```
 
-3. Execute command (after editing variables in yaml files):
+4. Execute command (after editing variables in yaml files):
 
   ```bash
   sudo kubectl apply --kustomize github.com/rsucasas/k8s/deploy/prometheus-NFS/
   ```
 
-## without persistence
-
-#### INSTALLATION
-
-1. NAMESPACE WHERE TO INSTALL ALL: ingress-nginx
-
-2. PROMETHEUS INSTALLATION (https://kubernetes.github.io/ingress-nginx/user-guide/monitoring/)
+5. Expose ports with the following command:
 
   ```
-  sudo kubectl apply --kustomize github.com/kubernetes/ingress-nginx/deploy/prometheus/
-  ```
-
-to expose port ...
-
-  ```
-  microk8s kubectl expose -n ingress-nginx deployment.apps/prometheus-server-p  --type=LoadBalancer --name=prometheus-service
-
   nohup kubectl port-forward -n ingress-nginx service/prometheus-server 9090:9090 --address 0.0.0.0 &
   ```
 
-3. NODE-EXPORTER
+6. Install **NODE-EXPORTER**
 
   ```
   sudo kubectl apply -f ./node-exporter.yaml
