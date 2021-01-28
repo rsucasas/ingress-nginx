@@ -51,51 +51,51 @@
 
 ##### node-exporter.yaml:
 
-```yaml
-apiVersion: apps/v1  #FAQ02
-kind: DaemonSet  ##FAQ01
-metadata:
-  name: node-exporter
-  namespace: ingress-nginx
-  labels:
-    k8s-app: node-exporter
-spec:
-  selector:  ##FAQ03
-    matchLabels:
+  ```yaml
+  apiVersion: apps/v1  #FAQ02
+  kind: DaemonSet  ##FAQ01
+  metadata:
+    name: node-exporter
+    namespace: ingress-nginx
+    labels:
       k8s-app: node-exporter
-  template:
-    metadata:
-      labels:
+  spec:
+    selector:  ##FAQ03
+      matchLabels:
         k8s-app: node-exporter
-    spec:
-      containers:
-      - image: prom/node-exporter
-        name: node-exporter
-        ports:
-        - containerPort: 9100
-          protocol: TCP
-          name: http
-      tolerations:
-      - effect: NoSchedule
-        operator: Exists
----
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    k8s-app: node-exporter
-  name: node-exporter
-  namespace: ingress-nginx
-spec:
-  ports:
-  - name: http
-    port: 9100
-    nodePort: 31672
-    protocol: TCP
-  type: NodePort
-  selector:
-    k8s-app: node-exporter
-```
+    template:
+      metadata:
+        labels:
+          k8s-app: node-exporter
+      spec:
+        containers:
+        - image: prom/node-exporter
+          name: node-exporter
+          ports:
+          - containerPort: 9100
+            protocol: TCP
+            name: http
+        tolerations:
+        - effect: NoSchedule
+          operator: Exists
+  ---
+  apiVersion: v1
+  kind: Service
+  metadata:
+    labels:
+      k8s-app: node-exporter
+    name: node-exporter
+    namespace: ingress-nginx
+  spec:
+    ports:
+    - name: http
+      port: 9100
+      nodePort: 31672
+      protocol: TCP
+    type: NodePort
+    selector:
+      k8s-app: node-exporter
+  ```
 
 4. NODE-EXPORTER CONFIGURATION (PROMETHEUS)
 
