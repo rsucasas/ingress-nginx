@@ -11,22 +11,20 @@ spec:
         - name: prometheus
           image: prom/prometheus
           args:
-            - "--config.file=/etc/prometheus/prometheus.yaml"
-            #- "--storage.tsdb.path=/prometheus/"
-            - "--storage.tsdb.retention.time=90d"
+            - '--config.file=/etc/prometheus/prometheus.yaml'
+            - '--storage.tsdb.retention=365d'
+            - '--storage.tsdb.no-lockfile'
           ports:
             - containerPort: 9090
           volumeMounts:
             - name: prometheus-config-volume
               mountPath: /etc/prometheus/
             - name: prometheus-storage-volume
-              mountPath: data/
+              mountPath: prometheus/
       volumes:
         - name: prometheus-config-volume
           configMap:
             name: prometheus-configuration-p
-        #- name: prometheus-storage-volume
-        #  emptyDir: {}
         - name: prometheus-storage-volume
           persistentVolumeClaim:
             claimName: prom-pvc-2
