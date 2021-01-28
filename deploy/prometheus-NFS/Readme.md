@@ -2,7 +2,7 @@
 
 ## installation with persistence
 
-1. Install NFS server and clients
+1. [Install NFS server and clients](https://github.com/rsucasas/k8s/tree/master/nfs)
 
 2. Create storage class: "nfs-storage-class"
 
