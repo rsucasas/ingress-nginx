@@ -31,7 +31,7 @@ volumeBindingMode: Immediate
 
 3. Execute command (after editing variables in yaml files):
 
-```
+```bash
 sudo kubectl apply --kustomize github.com/rsucasas/k8s/deploy/prometheus-NFS/
 ```
 
