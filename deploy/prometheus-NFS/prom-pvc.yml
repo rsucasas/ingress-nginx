@@ -8,7 +8,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: ""
+  storageClassName: "nfs-storage-class"
   resources:
     requests:
       storage: 3Gi
