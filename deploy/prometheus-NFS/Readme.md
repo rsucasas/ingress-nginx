@@ -6,7 +6,7 @@
 
 2. Create storage class: "nfs-storage-class"
 
-```
+```yaml
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
