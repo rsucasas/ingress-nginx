@@ -84,11 +84,11 @@ spec:
         name: node-exporter
         ports:
         - containerPort: 9100
-	  protocol: TCP
-	  name: http
+          protocol: TCP
+          name: http
       tolerations:
       - effect: NoSchedule
-	operator: Exists
+        operator: Exists
 ---
 apiVersion: v1
 kind: Service
