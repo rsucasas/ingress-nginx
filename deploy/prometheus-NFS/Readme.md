@@ -6,34 +6,34 @@
 
 2. Create storage class: "nfs-storage-class"
 
-```yaml
-kind: StorageClass
-apiVersion: storage.k8s.io/v1
-metadata:
-  name: nfs-storage-class
-  labels:
-    app: nfs-client-provisioner
-    app.kubernetes.io/managed-by: Helm
-    chart: nfs-client-provisioner-1.2.11
-    heritage: Helm
-    release: nfs-client-provisioner
-  managedFields:
-    - manager: Go-http-client
-      operation: Update
-      apiVersion: storage.k8s.io/v1
-provisioner: cluster.local/nfs-client-provisioner
-parameters:
-  archiveOnDelete: 'true'
-reclaimPolicy: Delete
-allowVolumeExpansion: true
-volumeBindingMode: Immediate
-```
+  ```yaml
+  kind: StorageClass
+  apiVersion: storage.k8s.io/v1
+  metadata:
+    name: nfs-storage-class
+    labels:
+      app: nfs-client-provisioner
+      app.kubernetes.io/managed-by: Helm
+      chart: nfs-client-provisioner-1.2.11
+      heritage: Helm
+      release: nfs-client-provisioner
+    managedFields:
+      - manager: Go-http-client
+        operation: Update
+        apiVersion: storage.k8s.io/v1
+  provisioner: cluster.local/nfs-client-provisioner
+  parameters:
+    archiveOnDelete: 'true'
+  reclaimPolicy: Delete
+  allowVolumeExpansion: true
+  volumeBindingMode: Immediate
+  ```
 
 3. Execute command (after editing variables in yaml files):
 
-```bash
-sudo kubectl apply --kustomize github.com/rsucasas/k8s/deploy/prometheus-NFS/
-```
+  ```bash
+  sudo kubectl apply --kustomize github.com/rsucasas/k8s/deploy/prometheus-NFS/
+  ```
 
 ## without persistence
 
@@ -43,22 +43,23 @@ sudo kubectl apply --kustomize github.com/rsucasas/k8s/deploy/prometheus-NFS/
 
 2. PROMETHEUS INSTALLATION (https://kubernetes.github.io/ingress-nginx/user-guide/monitoring/)
 
-```
-sudo kubectl apply --kustomize github.com/kubernetes/ingress-nginx/deploy/prometheus/
-```
+  ```
+  sudo kubectl apply --kustomize github.com/kubernetes/ingress-nginx/deploy/prometheus/
+  ```
 
 to expose port ...
-```
-microk8s kubectl expose -n ingress-nginx deployment.apps/prometheus-server-p  --type=LoadBalancer --name=prometheus-service
 
-nohup kubectl port-forward -n ingress-nginx service/prometheus-server 9090:9090 --address 0.0.0.0 &
-```
+  ```
+  microk8s kubectl expose -n ingress-nginx deployment.apps/prometheus-server-p  --type=LoadBalancer --name=prometheus-service
+
+  nohup kubectl port-forward -n ingress-nginx service/prometheus-server 9090:9090 --address 0.0.0.0 &
+  ```
 
 3. NODE-EXPORTER
 
-```
-sudo kubectl apply -f ./node-exporter.yaml
-```
+  ```
+  sudo kubectl apply -f ./node-exporter.yaml
+  ```
 
 ##### node-exporter.yaml:
 
