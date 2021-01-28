@@ -18,7 +18,7 @@ Installation guides of orchestrators like K8s, MicroK8s, K3s, and also tools lik
 
 ## K8s
 
-- [Install K8s on Ubuntu 16, 18](https://github.com/rsucasas/k8s/blob/master/install/K8s)
+- [Install a K8s cluster](https://github.com/rsucasas/k8s/blob/master/install/K8s) (_Ubuntu 16, 18_)
 
 
 ### MicroK8s
@@ -45,11 +45,11 @@ https://192.168.1.131:8443/#/login
 
 --------------------
 
-## Prometheus 
+## Prometheus on K8s
 
-- [Prometheus with persistence on K8s & MicroK8s](https://github.com/rsucasas/k8s/tree/master/deploy/prometheus)
+- [Prometheus with persistence](https://github.com/rsucasas/k8s/tree/master/deploy/prometheus)
 
-- [Prometheus with persistence (NFS) on K8s & MicroK8s](https://github.com/rsucasas/k8s/tree/master/deploy/prometheus-NFS)
+- [Prometheus with persistence (NFS)](https://github.com/rsucasas/k8s/tree/master/deploy/prometheus-NFS)
 
 - Prometheus on K8s
 
@@ -59,4 +59,4 @@ https://192.168.1.131:8443/#/login
 
 ## NFS server & clients
 
-- [Install server and clients on Ubuntu 16, 18](https://github.com/rsucasas/k8s/tree/master/nfs)
+- [Install server and clients](https://github.com/rsucasas/k8s/tree/master/nfs) (_Ubuntu 16, 18_)
