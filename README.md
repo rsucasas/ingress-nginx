@@ -51,9 +51,7 @@ https://192.168.1.131:8443/#/login
 
 - [Prometheus with persistence (NFS)](https://github.com/rsucasas/k8s/tree/master/deploy/prometheus-NFS)
 
-- Prometheus on K8s
-
-- Prometheus on MicroK8s
+- Prometheus (MicroK8s)
 
 -----------------------
 
