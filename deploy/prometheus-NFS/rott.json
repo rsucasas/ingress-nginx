@@ -14,7 +14,7 @@
 
   "schemes": ["http"],
 
-  "host": "rotterdam-caas.192.168.7.28.xip.io",
+  "host": "192.168.7.28:31815",
 
   "basePath": "/api/v1",
 
