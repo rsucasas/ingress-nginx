@@ -6,7 +6,7 @@ spec:
   replicas: 1
   template:
     spec:
-      serviceAccountName: prometheus-server-p
+      serviceAccountName: knative-monitoring-user
       containers:
         - name: prometheus
           image: prom/prometheus
