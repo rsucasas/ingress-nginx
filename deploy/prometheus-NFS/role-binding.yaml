@@ -1,11 +1,11 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: pledger-core-rbac
+  name: prom-rbac
 subjects:
   - kind: ServiceAccount
     # Reference to upper's `metadata.name`
-    name: prometheus-account
+    name: prometheus-server-p
     # Reference to upper's `metadata.namespace`
     namespace: knative-monitoring
 roleRef:
