@@ -27,4 +27,4 @@ spec:
             name: prometheus-configuration-p
         - name: prometheus-storage-volume
           persistentVolumeClaim:
-            claimName: prom-pvc-2
+            claimName: nfs
