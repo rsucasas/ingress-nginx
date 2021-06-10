@@ -17,8 +17,8 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: nfs
-  labels:
-     name: prometheus
+#  labels:
+#     name: prometheus
 spec:
   accessModes:
     - ReadWriteMany
