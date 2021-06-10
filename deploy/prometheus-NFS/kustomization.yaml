@@ -6,9 +6,9 @@ commonLabels:
   app.kubernetes.io/part-of: knative-monitoring
 resources:
 - prom-pvc.yml
-- role.yaml
-- service-account.yaml
-- role-binding.yaml
+#- role.yaml
+#- service-account.yaml
+#- role-binding.yaml
 - deployment.yaml
 - service.yaml
 images:
